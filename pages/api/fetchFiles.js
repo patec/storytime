@@ -18,9 +18,10 @@ const handle = async (req, res) => {
   // const [files] = await storage.bucket(bucketName).getFiles();
   const files = new Array(
     {
-      name: "Lawsuit Raises Questions About Rick Perry's Role in Ukraine.mp3"
+      name: 'Lawsuit Raises Questions About Rick Perrys Role in Ukraine.mp3'
     },
-    { name: 'Zato — a powerful Python-based ESB solution for your SOA.mp3' }
+    { name: 'Zato — a powerful Python-based ESB solution for your SOA.mp3' },
+    { name: 'output.mp3' }
   );
 
   const fileUrls = files.map((file, i) => {
