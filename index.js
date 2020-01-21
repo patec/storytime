@@ -2,6 +2,7 @@ const express = require('express');
 const { extract } = require('article-parser');
 
 const url = 'https://goo.gl/MV8Tkh';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const fetchArticle = (res, url) => {
   console.log('extracting url ' + url);

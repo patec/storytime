@@ -8,37 +8,36 @@ class AudioList extends React.Component {
       files: [],
       selected: '',
       audioUrl: '',
-      baseUrl: 'http://localhost:5000/'
+      baseUrl: 'https://storage.cloud.google.com/storytime-audio/'
     };
     this.fileList = this.fileList.bind(this);
     this.handleSelectorChange = this.handleSelectorChange.bind(this);
   }
 
   fileList() {
-    return this.state.files.map(f => <li>{f.name}</li>);
+    return this.state.files.map(f => <li value={f.url}>{f.name}</li>);
   }
 
   buildAudioPlayer() {
     if (this.state.audioUrl) {
       return (
-        <ReactAudioPlayer
-          // src="https://storage.cloud.google.com/storytime-audio/Zato%20%E2%80%94%20a%20powerful%20Python-based%20ESB%20solution%20for%20your%20SOA"
-          src={this.state.audioUrl}
-          controls
-        ></ReactAudioPlayer>
+        <ReactAudioPlayer src={this.state.audioUrl} controls></ReactAudioPlayer>
       );
     }
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/fetchFiles')
+    fetch('/api/fetchFiles')
       .then(res => res.json())
       .then(result => {
         console.log(result);
         const formatted = result.map(file => {
-          return { key: file.name, text: file.name, value: file.name };
+          return { key: file.name, text: file.name, value: file.url };
         });
-        this.setState({ files: formatted });
+        if (formatted) {
+          this.setState({ files: formatted });
+          this.setState({ audioUrl: formatted[0].value });
+        }
       });
   }
 
@@ -51,20 +50,23 @@ class AudioList extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>{this.buildAudioPlayer()}</div>
+      <div style={{ width: '700px', margin: 'auto', padding: '50px' }}>
+        <div>Select article to being listening:</div>
         <div>
           <select
             value={this.state.selected}
             onChange={this.handleSelectorChange}
           >
             {this.state.files.map(f => (
-              <option key={f.key + 'list'} value={f.name}>
+              <option key={f.key + 'list'} value={f.url}>
                 {f.key}
               </option>
             ))}
           </select>
         </div>
+        <br />
+        <br />
+        <div>{this.buildAudioPlayer()}</div>
       </div>
     );
   }

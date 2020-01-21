@@ -39,7 +39,14 @@ class URLInput extends React.Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          width: '50%',
+          padding: '50px',
+          margin: 'auto',
+          float: 'center'
+        }}
+      >
         <form onSubmit={this.handleSubmit}>
           <label style={{ paddingRight: '5px' }}>
             Submit a new article URL:
