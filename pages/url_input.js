@@ -31,9 +31,11 @@ class URLInput extends React.Component {
       .then(response => {
         console.log(response.data);
         this.setState({ text: response.data });
+        window.location = '/stream';
       })
       .catch(err => {
         console.error(err);
+        this.setState({ text: err.message });
       });
   }
 
