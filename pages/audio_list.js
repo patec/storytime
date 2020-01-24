@@ -50,7 +50,7 @@ class AudioList extends React.Component {
 
   render() {
     return (
-      <div style={{ width: '700px', margin: 'auto', padding: '50px' }}>
+      <div className="center w75 p50">
         <div>Select article to being listening:</div>
         <div>
           <select
@@ -67,6 +67,23 @@ class AudioList extends React.Component {
         <br />
         <br />
         <div>{this.buildAudioPlayer()}</div>
+        <style jsx>{`
+          .center {
+            margin: auto;
+          }
+
+          .centertext: {
+            text-align: center;
+          }
+
+          .w75 {
+            width: 75%;
+          }
+
+          .p50 {
+            padding: 50px;
+          }
+        `}</style>
       </div>
     );
   }

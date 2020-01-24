@@ -8,6 +8,12 @@ class URLInput extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.style = {
+      width: '50%',
+      padding: '50px',
+      margin: 'auto',
+      float: 'center'
+    };
   }
 
   handleChange(event) {
@@ -41,14 +47,7 @@ class URLInput extends React.Component {
 
   render() {
     return (
-      <div
-        style={{
-          width: '50%',
-          padding: '50px',
-          margin: 'auto',
-          float: 'center'
-        }}
-      >
+      <div style={this.style}>
         <form onSubmit={this.handleSubmit}>
           <label style={{ paddingRight: '5px' }}>
             Submit a new article URL:
