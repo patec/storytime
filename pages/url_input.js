@@ -33,7 +33,10 @@ class URLInput extends React.Component {
     console.log('url: ' + this.state.url);
 
     axios
-      .get('http://localhost:5000', params)
+      .get(
+        'https://us-central1-story-time-262322.cloudfunctions.net/news-to-text',
+        params
+      )
       .then(response => {
         console.log(response.data);
         this.setState({ text: response.data });

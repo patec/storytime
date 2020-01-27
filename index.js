@@ -1,5 +1,6 @@
 const express = require('express');
 const { extract } = require('article-parser');
+const cors = require('cors');
 
 const url = 'https://goo.gl/MV8Tkh';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,6 +21,8 @@ const app = express();
 const port = 3000;
 
 app.use(express.static('public'));
+app.use(cors());
+app.options('*', cors());
 
 app.get('/', (req, res) => fetchArticle(res, url));
 
