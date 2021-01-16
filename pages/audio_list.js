@@ -10,9 +10,7 @@ class AudioList extends React.Component {
       files: [],
       selected: '',
       audioUrl: '',
-      audioUrlHttps: '',
-      baseUrl: 'http://storage.cloud.google.com/storytime-audio/',
-      baseUrlHttps: 'https://storage.cloud.google.com/storytime-audio/'
+      baseUrl: 'https://storage.googleapis.com/storytime-audio/',
     };
     this.fileList = this.fileList.bind(this);
     this.handleSelectorChange = this.handleSelectorChange.bind(this);
@@ -24,19 +22,9 @@ class AudioList extends React.Component {
 
   buildAudioPlayer() {
     if (this.state.audioUrl) {
-      // return (
-      //   <ReactAudioPlayer src={this.state.audioUrl} controls></ReactAudioPlayer>
-      // );
-      // return (
-      //   <ReactPlayer url={this.state.audioUrl} controls={true} playing={true}></ReactPlayer>
-      // );
-      // return (
-      //   <audio autoPlay src={this.state.audioUrl} controls={true} type={"audio/mp3"}/>
-      // );
       return (
-      <div>
-        <audio src={this.state.audioUrl} controls={true} type={"audio/mpeg"}/>
-      </div>)
+        <audio src={this.state.audioUrl} controls={true} type={"audio/mp3"}/>
+      );
     }
   }
 
@@ -51,7 +39,6 @@ class AudioList extends React.Component {
         if (formatted) {
           this.setState({ files: formatted });
           this.setState({ audioUrl: formatted[0].value });
-          this.setState({ audioUrlHttps: formatted[0].value });
         }
       });
   }
@@ -61,11 +48,6 @@ class AudioList extends React.Component {
       selected: event.target.value,
       audioUrl: this.state.baseUrl + event.target.value
     });
-    this.setState({
-      selected: event.target.value,
-      audioUrlHttps: this.state.baseUrl + event.target.value
-    });
-
   }
 
   render() {
