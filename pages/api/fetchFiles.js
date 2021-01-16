@@ -8,7 +8,7 @@ const handle = async (req, res) => {
 
   const fileUrls = files.map((file, i) => {
     let urlEncoded =
-      'https://storage.cloud.google.com/storytime-audio/' +
+      'https://storage.googleapis.com/storytime-audio/' +
       encodeURI(file.name);
     return { name: file.name, url: urlEncoded };
   });
