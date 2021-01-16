@@ -28,7 +28,7 @@ class AudioList extends React.Component {
       //   <ReactPlayer url={this.state.audioUrl} controls={true} playing={true}></ReactPlayer>
       // );
       return (
-        <audio src={this.state.audioUrl} controls={true} autoPlay />
+        <audio src={this.state.audioUrl} controls={true} type={"audio/mp3"}/>
       );
     }
   }
