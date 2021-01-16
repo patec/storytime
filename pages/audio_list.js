@@ -33,13 +33,17 @@ class AudioList extends React.Component {
       // return (
       //   <audio autoPlay src={this.state.audioUrl} controls={true} type={"audio/mp3"}/>
       // );
-      return (<div>
+      return (
+      <div>
         <audio src={this.state.audioUrl} controls={true} type={"audio/mp3"}/>
         <AudioPlayer
-      autoPlay
-      src={this.state.audioUrlHttps}
-      controls
-      />
+          src={this.state.audioUrlHttps}
+          controls
+        />
+        <audio controls>
+          <source src="https://storage.cloud.google.com/storytime-audio/test.mp3" type="audio/mp3" />
+          Your browser does not support the audio element.
+        </audio>
       </div>)
     }
   }
