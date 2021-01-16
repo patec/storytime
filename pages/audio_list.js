@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
+import ReactPlayer from 'react-player';
 
 class AudioList extends React.Component {
   constructor(props) {
@@ -20,8 +21,11 @@ class AudioList extends React.Component {
 
   buildAudioPlayer() {
     if (this.state.audioUrl) {
+      // return (
+      //   <ReactAudioPlayer src={this.state.audioUrl} controls></ReactAudioPlayer>
+      // );
       return (
-        <ReactAudioPlayer src={this.state.audioUrl} controls></ReactAudioPlayer>
+        <ReactPlayer url={this.state.audioUrl} controls={true} autoPlay={true}></ReactPlayer>
       );
     }
   }
