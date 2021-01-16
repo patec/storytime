@@ -35,13 +35,13 @@ class AudioList extends React.Component {
       // );
       return (
       <div>
-        <audio src={this.state.audioUrl} controls={true} type={"audio/mp3"}/>
+        <audio src={this.state.audioUrl} controls={true} type={"audio/mpeg"}/>
         <AudioPlayer
           src={this.state.audioUrlHttps}
           controls
         />
         <audio controls>
-          <source src="http://storage.cloud.google.com/storytime-audio/test.mp3" type="audio/mp3" />
+          <source src="http://storage.cloud.google.com/storytime-audio/test.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       </div>)
