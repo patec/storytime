@@ -41,7 +41,7 @@ class AudioList extends React.Component {
           controls
         />
         <audio controls>
-          <source src="https://storage.cloud.google.com/storytime-audio/test.mp3" type="audio/mp3" />
+          <source src="http://storage.cloud.google.com/storytime-audio/test.mp3" type="audio/mp3" />
           Your browser does not support the audio element.
         </audio>
       </div>)
