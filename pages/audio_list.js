@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 import ReactPlayer from 'react-player';
+import AudioPlayer from 'react-h5-audio-player';
 
 class AudioList extends React.Component {
   constructor(props) {
@@ -27,9 +28,14 @@ class AudioList extends React.Component {
       // return (
       //   <ReactPlayer url={this.state.audioUrl} controls={true} playing={true}></ReactPlayer>
       // );
-      return (
-        <audio src={this.state.audioUrl} controls={true} type={"audio/mp3"}/>
-      );
+      // return (
+      //   <audio autoPlay src={this.state.audioUrl} controls={true} type={"audio/mp3"}/>
+      // );
+      return (<AudioPlayer
+      autoPlay
+      src={this.state.audioUrl}
+      controls
+    />)
     }
   }
 
